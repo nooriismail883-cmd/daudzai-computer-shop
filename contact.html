@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Noor Daudzai Computer Shop</title>
+  <meta name="description" content="Contact Noor Daudzai Computer Shop — phone, email, location and contact form for inquiries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+93700123456"><i>📞</i> +93 700 123 456</a>
+        <a href="mailto:info@noordaudzai.com"><i>✉️</i> info@noordaudzai.com</a>
+      </div>
+      <div class="topbar-right"><span><i>📍</i> Kabul, Afghanistan</span></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💻</span>
+        <span class="logo-text"><strong>Noor Daudzai</strong><small>Computer Shop</small></span>
+      </a>
+      <form class="search" onsubmit="event.preventDefault();window.location.href='products.html?search='+encodeURIComponent(this.q.value);">
+        <input type="text" name="q" placeholder="Search for laptops, desktops, parts..." />
+        <button type="submit">🔍</button>
+      </form>
+      <nav class="header-actions">
+        <a href="#" class="cart-btn" onclick="event.preventDefault();openCart()">🛒 <span class="cart-count" id="cartCount">0</span></a>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="products.html">Products ▾</a>
+          <div class="dropdown-menu">
+            <a href="products.html?category=laptops">Laptops</a><a href="products.html?category=desktops">Desktops</a><a href="products.html?category=graphics_cards">Graphics Cards</a><a href="products.html?category=processors">Processors</a><a href="products.html?category=memory">Memory</a><a href="products.html?category=storage">Storage</a><a href="products.html?category=monitors">Monitors</a><a href="products.html?category=peripherals">Peripherals</a>
+          </div>
+        </div>
+        <a href="products.html?deals=true">🔥 Deals</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero page-hero-dark">
+    <div class="hero-bg"><div class="blob blob1"></div><div class="blob blob2"></div></div>
+    <div class="container page-hero-content">
+      <h1>Contact Us</h1>
+      <p>Have questions? We're here to help. Reach out to us through any of the channels below.</p>
+    </div>
+  </section>
+
+  <!-- Contact info cards -->
+  <section class="section" style="padding-top:0; margin-top:-48px;">
+    <div class="container">
+      <div class="contact-cards">
+        <div class="contact-card"><div class="contact-icon">📞</div><h3>Phone</h3><p>+93 700 123 456</p><p>+93 700 789 012</p><a href="tel:+93700123456" class="btn btn-outline btn-sm">Call Now</a></div>
+        <div class="contact-card"><div class="contact-icon">✉️</div><h3>Email</h3><p>info@noordaudzai.com</p><p>support@noordaudzai.com</p><a href="mailto:info@noordaudzai.com" class="btn btn-outline btn-sm">Send Email</a></div>
+        <div class="contact-card"><div class="contact-icon">📍</div><h3>Address</h3><p>Kabul, Afghanistan</p><p>Near City Center</p><a href="#map" class="btn btn-outline btn-sm">Get Directions</a></div>
+        <div class="contact-card"><div class="contact-icon">⏰</div><h3>Business Hours</h3><p>Sat–Thu: 9AM – 6PM</p><p>Friday: Closed</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form + map -->
+  <section class="section" style="padding-top:0;">
+    <div class="container contact-layout">
+      <div class="contact-form-wrap">
+        <h2>Send Us a Message</h2>
+        <p class="muted">Fill out the form below and we'll get back to you as soon as possible.</p>
+        <form id="contactForm" onsubmit="submitContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" required placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" required placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="text" name="phone" placeholder="+93 700 000 000" />
+            </div>
+            <div class="form-group">
+              <label>Subject *</label>
+              <select name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="product">Product Question</option>
+                <option value="service">Service Request</option>
+                <option value="support">Technical Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea name="message" required placeholder="How can we help you?" rows="6"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn">✈️ Send Message</button>
+        </form>
+        <div class="form-success" id="formSuccess" style="display:none;">
+          <div class="success-ico">✓</div>
+          <h3>Message Sent!</h3>
+          <p>Thank you for contacting us. We'll respond within 24 hours.</p>
+          <button class="btn btn-outline" onclick="document.getElementById('formSuccess').style.display='none';document.getElementById('contactForm').style.display='block';">Send Another Message</button>
+        </div>
+      </div>
+      <div class="contact-side">
+        <div class="contact-map" id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d419337.8594594626!2d69.1260839!3d34.5553494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16eb6f8ff026d%3A0xf3b5460dbe96da78!2sKabul%2C%20Afghanistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Our Location"></iframe>
+        </div>
+        <div class="contact-quick">
+          <h3>Quick Contact</h3>
+          <p>Need immediate assistance? Reach out to us directly through WhatsApp for the fastest response.</p>
+          <a href="https://wa.me/93700123456" target="_blank" class="btn btn-green btn-block">💬 Chat on WhatsApp</a>
+        </div>
+        <div class="contact-social">
+          <h3>Follow Us</h3>
+          <p>Stay updated with our latest products and offers on social media.</p>
+          <div class="social-icons">
+            <a href="#" class="soc soc-fb">f</a>
+            <a href="#" class="soc soc-ig">ig</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><div class="logo logo-light"><span class="logo-icon">💻</span><strong>Noor Daudzai</strong></div><p>Your trusted destination for quality refurbished computers and tech services in Afghanistan.</p></div>
+      <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div>
+      <div><h4>Categories</h4><a href="products.html?category=laptops">Laptops</a><a href="products.html?category=desktops">Desktops</a><a href="products.html?category=monitors">Monitors</a><a href="products.html?category=peripherals">Peripherals</a></div>
+      <div><h4>Contact Us</h4><p class="fc-item"><span>📍</span> Kabul, Afghanistan</p><p class="fc-item"><span>📞</span> <a href="tel:+93700123456">+93 700 123 456</a></p><p class="fc-item"><span>✉️</span> <a href="mailto:info@noordaudzai.com">info@noordaudzai.com</a></p></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2024 Noor Daudzai Computer Shop. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Terms</a></span></div></div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-head"><h3>🛒 Shopping Cart</h3><button onclick="closeCart()">✕</button></div>
+    <div class="cart-drawer-body" id="cartItems"></div>
+    <div class="cart-drawer-foot" id="cartFoot"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
