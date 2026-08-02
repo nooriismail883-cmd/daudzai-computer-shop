@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Noor Daudzai Computer Shop</title>
+  <meta name="description" content="Browse our complete collection of quality refurbished computers, laptops, and parts." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="products.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+93700123456"><i>📞</i> +93 700 123 456</a>
+        <a href="mailto:info@noordaudzai.com"><i>✉️</i> info@noordaudzai.com</a>
+      </div>
+      <div class="topbar-right">
+        <span><i>📍</i> Kabul, Afghanistan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💻</span>
+        <span class="logo-text"><strong>Noor Daudzai</strong><small>Computer Shop</small></span>
+      </a>
+      <form class="search" onsubmit="event.preventDefault();doSearch(this.q.value);">
+        <input type="text" name="q" id="searchInput" placeholder="Search products..." />
+        <button type="submit">🔍</button>
+      </form>
+      <nav class="header-actions">
+        <a href="#" class="cart-btn" onclick="event.preventDefault();openCart()">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="products.html" class="active">Products ▾</a>
+          <div class="dropdown-menu">
+            <a href="products.html?category=laptops">Laptops</a>
+            <a href="products.html?category=desktops">Desktops</a>
+            <a href="products.html?category=graphics_cards">Graphics Cards</a>
+            <a href="products.html?category=processors">Processors</a>
+            <a href="products.html?category=memory">Memory (RAM)</a>
+            <a href="products.html?category=storage">Storage</a>
+            <a href="products.html?category=monitors">Monitors</a>
+            <a href="products.html?category=peripherals">Peripherals</a>
+          </div>
+        </div>
+        <a href="products.html?deals=true">🔥 Deals</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page header -->
+  <div class="page-hero">
+    <div class="container">
+      <h1 id="pageTitle">All Products</h1>
+      <p id="pageSubtitle">Browse our complete collection of quality refurbished computers</p>
+    </div>
+  </div>
+
+  <div class="container products-layout">
+    <!-- Mobile filter toggle -->
+    <button class="filter-toggle" id="filterToggle">🎛️ Filters <span class="filter-badge" id="filterBadge"></span></button>
+
+    <!-- Sidebar -->
+    <aside class="filters" id="filters">
+      <div class="filter-block">
+        <h3>Categories</h3>
+        <div id="categoryFilters"></div>
+      </div>
+      <div class="filter-block">
+        <h3>Condition</h3>
+        <div id="conditionFilters"></div>
+      </div>
+      <div class="filter-block">
+        <h3>Price Range</h3>
+        <div class="price-range">
+          <input type="range" id="priceMin" min="0" max="5000" value="0" step="50" />
+          <input type="range" id="priceMax" min="0" max="5000" value="5000" step="50" />
+          <div class="price-labels"><span id="priceMinLabel">$0</span><span id="priceMaxLabel">$5000</span></div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block" onclick="clearFilters()">✕ Clear All Filters</button>
+    </aside>
+
+    <!-- Main -->
+    <div class="products-main">
+      <div class="toolbar">
+        <input type="text" class="search-inline" id="searchInline" placeholder="Search products..." />
+        <select id="sortBy" onchange="renderProducts()">
+          <option value="newest">Newest</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name</option>
+          <option value="rating">Rating</option>
+        </select>
+      </div>
+      <div class="active-filters" id="activeFilters"></div>
+      <div class="result-count" id="resultCount"></div>
+      <div class="product-grid" id="productsGrid"></div>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-ico">🔍</div>
+        <h3>No products found</h3>
+        <p>Try adjusting your filters or search terms</p>
+        <button class="btn btn-outline" onclick="clearFilters()">Clear All Filters</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo logo-light"><span class="logo-icon">💻</span><strong>Noor Daudzai</strong></div>
+        <p>Your trusted destination for quality refurbished computers and tech services in Afghanistan.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Categories</h4>
+        <a href="products.html?category=laptops">Laptops</a><a href="products.html?category=desktops">Desktops</a><a href="products.html?category=monitors">Monitors</a><a href="products.html?category=peripherals">Peripherals</a>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <p class="fc-item"><span>📍</span> Kabul, Afghanistan</p>
+        <p class="fc-item"><span>📞</span> <a href="tel:+93700123456">+93 700 123 456</a></p>
+        <p class="fc-item"><span>✉️</span> <a href="mailto:info@noordaudzai.com">info@noordaudzai.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2024 Noor Daudzai Computer Shop. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Terms</a></span></div></div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-head"><h3>🛒 Shopping Cart</h3><button onclick="closeCart()">✕</button></div>
+    <div class="cart-drawer-body" id="cartItems"></div>
+    <div class="cart-drawer-foot" id="cartFoot"></div>
+  </aside>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initProducts);
+  </script>
+</body>
+</html>
