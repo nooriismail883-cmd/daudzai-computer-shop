@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Noor Daudzai Computer Shop</title>
+  <meta name="description" content="Learn about Noor Daudzai Computer Shop — 10+ years of providing quality refurbished computers and IT services in Afghanistan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a href="tel:+93700123456"><i>📞</i> +93 700 123 456</a>
+        <a href="mailto:info@noordaudzai.com"><i>✉️</i> info@noordaudzai.com</a>
+      </div>
+      <div class="topbar-right"><span><i>📍</i> Kabul, Afghanistan</span></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">💻</span>
+        <span class="logo-text"><strong>Noor Daudzai</strong><small>Computer Shop</small></span>
+      </a>
+      <form class="search" onsubmit="event.preventDefault();window.location.href='products.html?search='+encodeURIComponent(this.q.value);">
+        <input type="text" name="q" placeholder="Search for laptops, desktops, parts..." />
+        <button type="submit">🔍</button>
+      </form>
+      <nav class="header-actions">
+        <a href="#" class="cart-btn" onclick="event.preventDefault();openCart()">🛒 <span class="cart-count" id="cartCount">0</span></a>
+      </nav>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="products.html">Products ▾</a>
+          <div class="dropdown-menu">
+            <a href="products.html?category=laptops">Laptops</a><a href="products.html?category=desktops">Desktops</a><a href="products.html?category=graphics_cards">Graphics Cards</a><a href="products.html?category=processors">Processors</a><a href="products.html?category=memory">Memory</a><a href="products.html?category=storage">Storage</a><a href="products.html?category=monitors">Monitors</a><a href="products.html?category=peripherals">Peripherals</a>
+          </div>
+        </div>
+        <a href="products.html?deals=true">🔥 Deals</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero page-hero-dark">
+    <div class="hero-bg"><div class="blob blob1"></div><div class="blob blob2"></div></div>
+    <div class="container about-hero-grid">
+      <div class="about-hero-text">
+        <h1>About <span class="gradient-text">Noor Daudzai</span></h1>
+        <p>We are your trusted destination for quality refurbished computers in Afghanistan. With over 10 years of experience, we've helped thousands of customers find the perfect tech solutions at affordable prices.</p>
+        <div class="about-stats">
+          <div><strong>10+</strong><span>Years Experience</span></div>
+          <div><strong>5000+</strong><span>Happy Customers</span></div>
+          <div><strong>1000+</strong><span>Products Sold</span></div>
+        </div>
+      </div>
+      <div class="about-hero-img">
+        <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?w=600&q=80" alt="Our Team" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="section">
+    <div class="container about-split">
+      <div class="about-split-img">
+        <img src="https://images.unsplash.com/photo-1553484771-047a44eee27b?w=600&q=80" alt="Our Store" />
+      </div>
+      <div class="about-split-text">
+        <h2>Our Story</h2>
+        <p>Noor Daudzai Computer Shop was founded with a simple mission: to make quality technology accessible to everyone. We started as a small computer repair shop and have grown into a trusted destination for refurbished computers and IT services.</p>
+        <p>We believe that everyone deserves access to reliable technology without breaking the bank. That's why we carefully select, test, and certify every product we sell, ensuring our customers get the best value for their money.</p>
+        <p>Our team of experienced technicians is passionate about technology and dedicated to providing exceptional customer service. Whether you need a laptop for work, a gaming PC, or computer repair services, we're here to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Values</h2>
+        <p>These core values guide everything we do and help us serve you better</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon">🛡️</div><h3>Quality First</h3><p>Every product is thoroughly tested and certified to ensure top-notch quality.</p></div>
+        <div class="value-card"><div class="value-icon">❤️</div><h3>Customer Focus</h3><p>Your satisfaction is our priority. We go above and beyond to serve you better.</p></div>
+        <div class="value-card"><div class="value-icon">🎯</div><h3>Transparency</h3><p>Honest pricing and clear communication in all our business dealings.</p></div>
+        <div class="value-card"><div class="value-icon">🏆</div><h3>Excellence</h3><p>Striving for excellence in every product we sell and service we provide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Journey</h2>
+        <p>From a small repair shop to a leading computer reseller</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2014</div><h3>Founded</h3><p>Started as a small computer repair shop</p></div></div>
+        <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2016</div><h3>Expansion</h3><p>Expanded to sell refurbished computers</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2019</div><h3>Growth</h3><p>Served 2000+ satisfied customers</p></div></div>
+        <div class="timeline-item right"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2024</div><h3>Today</h3><p>Leading computer reseller in the region</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-box cta-teal">
+        <div class="cta-text center-content light">
+          <h2>Ready to Experience the Difference?</h2>
+          <p>Visit our shop or browse our products online to find your perfect computer.</p>
+          <div class="hero-btns center">
+            <a href="products.html" class="btn btn-white">Shop Now →</a>
+            <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><div class="logo logo-light"><span class="logo-icon">💻</span><strong>Noor Daudzai</strong></div><p>Your trusted destination for quality refurbished computers and tech services in Afghanistan.</p></div>
+      <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div>
+      <div><h4>Categories</h4><a href="products.html?category=laptops">Laptops</a><a href="products.html?category=desktops">Desktops</a><a href="products.html?category=monitors">Monitors</a><a href="products.html?category=peripherals">Peripherals</a></div>
+      <div><h4>Contact Us</h4><p class="fc-item"><span>📍</span> Kabul, Afghanistan</p><p class="fc-item"><span>📞</span> <a href="tel:+93700123456">+93 700 123 456</a></p><p class="fc-item"><span>✉️</span> <a href="mailto:info@noordaudzai.com">info@noordaudzai.com</a></p></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2024 Noor Daudzai Computer Shop. All rights reserved.</span><span><a href="#">Privacy Policy</a> · <a href="#">Terms</a></span></div></div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-head"><h3>🛒 Shopping Cart</h3><button onclick="closeCart()">✕</button></div>
+    <div class="cart-drawer-body" id="cartItems"></div>
+    <div class="cart-drawer-foot" id="cartFoot"></div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
