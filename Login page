@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Noor Daudzai Computer Shop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+    width:400px;
+    max-width:90%;
+    background:#fff;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.logo{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+h1{
+    text-align:center;
+    color:#0f172a;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+input:focus{
+    border-color:#2563eb;
+    outline:none;
+    box-shadow:0 0 10px rgba(37,99,235,.2);
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.options a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+.login-btn{
+    width:100%;
+    padding:15px;
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#1d4ed8;
+}
+
+.register{
+    text-align:center;
+    margin-top:25px;
+    color:#666;
+}
+
+.register a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.back-home{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#2563eb;
+    text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login-box">
+
+<div class="logo">💻</div>
+
+<h1>Welcome Back</h1>
+
+<p class="subtitle">
+Login to your Noor Daudzai Computer Shop account
+</p>
+
+<form action="#" method="post">
+
+<div class="input-group">
+<label>Email Address</label>
+<input
+type="email"
+name="email"
+placeholder="Enter your email"
+required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input
+type="password"
+name="password"
+placeholder="Enter your password"
+required>
+</div>
+
+<div class="options">
+<label>
+<input type="checkbox">
+ Remember Me
+</label>
+
+<a href="#">Forgot Password?</a>
+
+</div>
+
+<button class="login-btn">
+Login
+</button>
+
+</form>
+
+<div class="register">
+Don't have an account?
+<a href="register.html">Create Account</a>
+</div>
+
+<a class="back-home" href="index.html">
+← Back to Home
+</a>
+
+</div>
+
+</body>
+</html>
