@@ -143,20 +143,73 @@ function renderCart() {
       </div>`;
   }).join('');
   const subtotal = calcCartTotal();
-  const shipping = subtotal > 500 ? 0 : 25;
   foot.innerHTML = `
-    <div class="cart-line"><span>Subtotal</span><strong>${fmt(subtotal)}</strong></div>
-    <div class="cart-line"><span>Shipping</span><strong>${shipping === 0 ? 'FREE' : fmt(shipping)}</strong></div>
-    ${shipping > 0 ? `<div class="cart-line" style="color:var(--teal);font-size:.8rem">Add ${fmt(500 - subtotal)} more for free shipping!</div>` : ''}
-    <div class="cart-line total"><span>Total</span><strong>${fmt(subtotal + shipping)}</strong></div>
-    <button class="cart-checkout" onclick="checkout()">Proceed to Checkout</button>`;
+    <div class="cart-line"><span>Items Total</span><strong>${fmt(subtotal)}</strong></div>
+    <div class="cart-request-note">
+      💬 No online payment. Send us a request and we'll contact you to confirm availability, price, and delivery.
+    </div>
+    <div class="cart-line total"><span>Estimated Total</span><strong>${fmt(subtotal)}</strong></div>
+    <button class="cart-checkout cart-request-btn" onclick="requestOrder()">💬 Send Order Request</button>`;
 }
-function checkout() {
-  alert('Thank you for your order! In the full app this would process payment. For now, your cart has been cleared. 🎉');
-  localStorage.removeItem('nd_cart');
-  updateCartCount();
-  renderCart();
-  closeCart();
+function requestOrder() {
+  const cart = getCart();
+  if (!cart.length) return;
+
+  const items = cart.map(item => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    return p ? `${item.qty} × ${p.name} — ${fmt(p.price * item.qty)}` : '';
+  }).filter(Boolean).join('\n');
+
+  const total = fmt(calcCartTotal());
+  const existing = document.getElementById('orderRequestModal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'orderRequestModal';
+  modal.className = 'order-request-modal';
+  modal.innerHTML = `
+    <div class="order-request-backdrop" onclick="closeOrderRequest()"></div>
+    <div class="order-request-card" role="dialog" aria-modal="true" aria-labelledby="orderRequestTitle">
+      <button class="order-request-close" type="button" onclick="closeOrderRequest()" aria-label="Close">×</button>
+      <div class="order-request-icon">💬</div>
+      <h2 id="orderRequestTitle">Send Order Request</h2>
+      <p class="order-request-subtitle">No payment is required online. We'll contact you to confirm the order.</p>
+      <form action="https://formsubmit.co/nooriismail883@gmail.com" method="POST" class="order-request-form">
+        <input type="hidden" name="_subject" value="New Order Request — Noor Daudzai Computer Shop">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="thankyou.html">
+        <input type="hidden" name="Order Items" value="${items.replace(/"/g, '&quot;')}">
+        <input type="hidden" name="Estimated Total" value="${total}">
+        <label>Full Name *
+          <input type="text" name="Name" placeholder="Your name" required>
+        </label>
+        <label>Email *
+          <input type="email" name="Email" placeholder="you@example.com" required>
+        </label>
+        <label>Phone Number
+          <input type="tel" name="Phone" placeholder="703-555-1234">
+        </label>
+        <label>Message
+          <textarea name="Message" rows="4" placeholder="Any questions, preferred pickup/delivery, or other details?"></textarea>
+        </label>
+        <div class="order-request-summary">
+          <strong>Your Request</strong>
+          <div>${items.replace(/\n/g, '<br>')}</div>
+          <strong>Estimated Total: ${total}</strong>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">💬 Send Request</button>
+        <p class="order-request-disclaimer">This is a request only. No payment will be charged through this website.</p>
+      </form>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  document.body.style.overflow = 'hidden';
+}
+function closeOrderRequest() {
+  const modal = document.getElementById('orderRequestModal');
+  if (modal) modal.remove();
+  document.body.style.overflow = '';
 }
 
 /* ----- Mobile menu ----- */
