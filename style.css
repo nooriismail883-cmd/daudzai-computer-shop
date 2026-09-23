@@ -398,3 +398,22 @@ ul { list-style: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom .container { flex-direction: column; text-align: center; }
 }
+
+
+/* ===== Order Request (no online checkout/payment) ===== */
+.cart-request-note { margin-top:.85rem; padding:.75rem .85rem; border-radius:.7rem; background:#f0f9ff; color:#475569; font-size:.8rem; line-height:1.45; }
+.cart-request-btn { background:linear-gradient(135deg,var(--teal),var(--cyan)); }
+.order-request-modal { position:fixed; inset:0; z-index:10000; }
+.order-request-backdrop { position:absolute; inset:0; background:rgba(15,23,42,.65); backdrop-filter:blur(3px); }
+.order-request-card { position:relative; width:min(560px,calc(100% - 2rem)); max-height:calc(100vh - 2rem); overflow-y:auto; margin:1rem auto; background:#fff; border-radius:1.25rem; padding:2rem; box-shadow:0 25px 70px rgba(0,0,0,.25); }
+.order-request-close { position:absolute; top:.8rem; right:.9rem; width:38px; height:38px; border:0; border-radius:50%; background:var(--slate-light); color:var(--navy); font-size:1.5rem; cursor:pointer; }
+.order-request-icon { font-size:2rem; margin-bottom:.4rem; }
+.order-request-card h2 { font-size:1.5rem; margin-bottom:.25rem; }
+.order-request-subtitle { color:var(--slate); font-size:.9rem; margin-bottom:1.25rem; }
+.order-request-form { display:grid; gap:.9rem; }
+.order-request-form label { display:grid; gap:.35rem; font-weight:600; font-size:.9rem; color:var(--navy); }
+.order-request-form input,.order-request-form textarea { width:100%; border:1px solid var(--border); border-radius:.65rem; padding:.75rem .85rem; font:inherit; resize:vertical; }
+.order-request-form input:focus,.order-request-form textarea:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 2px rgba(14,165,233,.12); }
+.order-request-summary { display:grid; gap:.45rem; padding:.9rem; border-radius:.75rem; background:var(--slate-100); color:var(--slate); font-size:.82rem; }
+.order-request-summary strong { color:var(--navy); }
+.order-request-disclaimer { text-align:center; color:var(--slate); font-size:.75rem; margin-top:-.25rem; }
